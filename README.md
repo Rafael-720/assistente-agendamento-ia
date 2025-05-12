@@ -94,21 +94,21 @@ curl -X POST http://localhost:8000/comando -H "Content-Type: application/json" -
 ```bash
 curl -X POST http://localhost:8000/voz
 ```
-Pressione Enter
+* Pressione Enter
 
-Fale algo como: “Agendar reunião com Rafael amanhã às 15h”
+* Fale algo como: “Agendar reunião com Rafael amanhã às 15h”
 
-O sistema:
+* O sistema:
 
-Transcreve
+   * Transcreve
 
-Agenda
+   * Agenda
 
-Envia e-mail
+   * Envia e-mail
 
-Registra no Sheets
+   * Registra no Sheets
 
-Reponde com áudio 🎧
+   * Reponde com áudio 🎧
 
 
 

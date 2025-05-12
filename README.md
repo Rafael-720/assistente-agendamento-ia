@@ -3,16 +3,16 @@ voice-scheduling-assistant
 
 # 🤖 Assistente de Agendamento com IA
 
-Este é um protótipo funcional de um assistente inteligente capaz de entender comandos em linguagem natural, agendar eventos, enviar confirmações por e-mail, registrar logs e gerar resposta por voz.
+Protótipo funcional de um assistente inteligente capaz de entender comandos de texto ou voz, agendar eventos no Google Calendar, enviar e-mail de confirmação, registrar log em planilha e responder com áudio gerado por IA.
 
 ## 🚀 Funcionalidades
 
-- ✍️ Interpretação de comandos de texto com OpenAI GPT
-- 📅 Criação automática de eventos no Google Calendar
-- 📧 Envio de e-mail de confirmação via Gmail SMTP
-- 📊 Registro de eventos no Google Sheets
-- 🎙 Entrada por voz (gravação e transcrição com Whisper)
-- 🔊 Saída por voz (resposta falada com TTS OpenAI)
+- ✍️ Interpretação de comandos de texto com OpenAI GPT (GPT-4o)
+- 📅 Criação de evento no Google Calendar
+- 📧 Envio de e-mail de confirmação com SMTP
+- 📊 Registro de evento no Google Sheets
+- 🎙 Entrada por voz com gravação e transcrição via Whisper
+- 🔊 Resposta por voz com TTS (Text-to-Speech)
 
 ## 🛠 Requisitos
 
@@ -26,21 +26,30 @@ Este é um protótipo funcional de um assistente inteligente capaz de entender c
 ```
 src/
 ├── controllers/
-│   ├── comando_controller.py
-│   └── voz_controller.py
+│ ├── comando_controller.py # Lida com /comando
+│ └── voz_controller.py # Lida com /voz (gravação e transcrição)
 ├── services/
-│   ├── calendar_service.py
-│   ├── email_service.py
-│   ├── log_service.py
-│   ├── stt_service.py
-│   └── tts_service.py
+│ ├── calendar_service.py # Integra com Google Calendar
+│ ├── email_service.py # Envia e-mail
+│ ├── log_service.py # Registra no Google Sheets
+│ ├── stt_service.py # Transcrição de áudio
+│ └── tts_service.py # Geração de áudio TTS
 ├── utils/
-│   └── parser.py
+│ └── parser.py # Interpreta comando em linguagem natural
 └── main.py
 ```
 
-## ⚙️ Variáveis de Ambiente (.env)
 
+## ▶️ Como rodar
+
+1. Clone o repositório e crie um ambiente virtual
+   
+2. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+3. Crie e configure o arquivo .env
 ```env
 OPENAI_API_KEY=sk-...
 EMAIL_ORIGEM=seu@email.com
@@ -48,17 +57,29 @@ EMAIL_SENHA=senha_de_app
 EMAIL_DESTINO=destinatario@email.com
 GOOGLE_SHEET_ID=ID_da_planilha
 GOOGLE_CALENDAR_ID=ID_do_calendario
-PLAY_AUDIO=True
+PLAY_AUDIO=True  #Para desativar a reprodução automática do áudio, use no .env
 ```
+A senha de app deve ser criada no Google Conta > Segurança > Senhas de app.
 
-## ▶️ Como rodar
+4. Configurar Google Sheets e Calendar
+   ✅ Google Cloud Platform
+Acesse: https://console.cloud.google.com
 
-1. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
+Crie um novo projeto
 
-2. Rode a API:
+Ative as APIs:
+
+Google Sheets API
+
+Google Calendar API
+
+Vá em "Credenciais" e crie uma chave de conta de serviço (JSON)
+
+Salve como credenciais_google.json na raiz do projeto
+
+Compartilhe a planilha e o calendário com o e-mail da conta de serviço (xxx@xxx.iam.gserviceaccount.com) com permissão de editor
+
+5. Rode a API:
 ```bash
 uvicorn src.main:app --reload
 ```
@@ -73,10 +94,23 @@ curl -X POST http://localhost:8000/comando -H "Content-Type: application/json" -
 ```bash
 curl -X POST http://localhost:8000/voz
 ```
+Pressione Enter
 
-## 🎥 Demonstração
+Fale algo como: “Agendar reunião com Rafael amanhã às 15h”
 
-Veja o vídeo com o sistema funcionando em tempo real (link a ser adicionado).
+O sistema:
+
+Transcreve
+
+Agenda
+
+Envia e-mail
+
+Registra no Sheets
+
+Reponde com áudio 🎧
+
+
 
 ## 📄 Licença
 

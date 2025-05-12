@@ -63,21 +63,21 @@ A senha de app deve ser criada no Google Conta > Segurança > Senhas de app.
 
 4. Configurar Google Sheets e Calendar
    ✅ Google Cloud Platform
-Acesse: https://console.cloud.google.com
+   4.1 Acesse: https://console.cloud.google.com
 
-Crie um novo projeto
+   4.2 Crie um novo projeto
 
-Ative as APIs:
+   4.3 Ative as APIs:
 
-Google Sheets API
+      * Google Sheets API
 
-Google Calendar API
+      * Google Calendar API
 
-Vá em "Credenciais" e crie uma chave de conta de serviço (JSON)
+   4.4 Vá em "Credenciais" e crie uma chave de conta de serviço (JSON)
 
-Salve como credenciais_google.json na raiz do projeto
+   4.5 Salve como credenciais_google.json na raiz do projeto
 
-Compartilhe a planilha e o calendário com o e-mail da conta de serviço (xxx@xxx.iam.gserviceaccount.com) com permissão de editor
+   4.6 Compartilhe a planilha e o calendário com o e-mail da conta de serviço (xxx@xxx.iam.gserviceaccount.com) com permissão de editor
 
 5. Rode a API:
 ```bash

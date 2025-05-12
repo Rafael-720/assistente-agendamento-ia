@@ -87,6 +87,6 @@ Uso educacional e demonstrativo.
 
 Rafael Oliveira - [LinkedIn](https://linkedin.com/in/rafael-oliveira720)
 
----
+----
 
 💡 Projeto dedicado ao avanço e aplicação prática de tecnologias de IA em processamento de linguagem natural.
